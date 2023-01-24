@@ -1,0 +1,79 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+struct Contact {
+string name;
+string number;
+string email;
+string address;
+};
+
+void addContact(Contact &c) {
+cout << "Enter name: ";
+cin >> c.name;
+cout << "Enter phone number: ";
+cin >> c.number;
+cout << "Enter email: ";
+cin >> c.email;
+cout << "Enter address: ";
+cin >> c.address;
+}
+
+void searchContact(Contact &c) {
+string searchName;
+cout << "Enter name of contact to search: ";
+cin >> searchName;
+if (c.name == searchName) {
+cout << "Name: " << c.name << endl;
+cout << "Phone number: " << c.number << endl;
+cout << "Email: " << c.email << endl;
+cout << "Address: " << c.address << endl;
+}
+else {
+cout << "Contact not found." << endl;
+}
+}
+
+void deleteContact(Contact &c) {
+string deleteName;
+cout << "Enter name of contact to delete: ";
+cin >> deleteName;
+if (c.name == deleteName) {
+c.name = "";
+c.number = "";
+c.email = "";
+c.address = "";
+cout << "Contact deleted." << endl;
+}
+else {
+cout << "Contact not found." << endl;
+}
+}
+
+int main() {
+Contact c;
+int choice;
+while (true) {
+cout << "1. Add contact" << endl;
+cout << "2. Search contact" << endl;
+cout << "3. Delete contact" << endl;
+cout << "4. Exit" << endl;
+cout << "Enter choice: ";
+cin >> choice;
+if (choice == 1) {
+addContact(c);
+}
+else if (choice == 2) {
+searchContact(c);
+}
+else if (choice == 3) {
+deleteContact(c);
+}
+else if (choice == 4) {
+break;
+}
+}
+return 0;
+}
